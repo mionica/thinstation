@@ -3,8 +3,8 @@
 # Maintainer:  CRUX System Team, core-ports at crux dot nu
 
 name=glibc
-version=2.23
-release=2
+version=2.24
+release=1
 source=(http://ftp.gnu.org/gnu/glibc/glibc-$version.tar.xz
         hosts resolv.conf nsswitch.conf host.conf ld.so.conf)
 
