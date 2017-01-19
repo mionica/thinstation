@@ -1,0 +1,34 @@
+drwxr-sr-x	root/106	usr/
+drwxr-sr-x	root/106	usr/bin/
+-rwxr-xr-x	root/106	usr/bin/hb-ot-shape-closure
+-rwxr-xr-x	root/106	usr/bin/hb-shape
+-rwxr-xr-x	root/106	usr/bin/hb-view
+drwxr-sr-x	root/106	usr/include/
+drwxr-sr-x	root/106	usr/include/harfbuzz/
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-blob.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-buffer.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-common.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-deprecated.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-face.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-font.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-ft.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-glib.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-ot-font.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-ot-layout.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-ot-math.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-ot-shape.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-ot-tag.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-ot.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-set.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-shape-plan.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-shape.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-unicode.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb-version.h
+-rw-r--r--	root/106	usr/include/harfbuzz/hb.h
+drwxr-sr-x	root/106	usr/lib/
+-rwxr-xr-x	root/106	usr/lib/libharfbuzz.la
+lrwxrwxrwx	root/106	usr/lib/libharfbuzz.so -> libharfbuzz.so.0.10304.0
+lrwxrwxrwx	root/106	usr/lib/libharfbuzz.so.0 -> libharfbuzz.so.0.10304.0
+-rwxr-xr-x	root/106	usr/lib/libharfbuzz.so.0.10304.0
+drwxr-sr-x	root/106	usr/lib/pkgconfig/
+-rw-r--r--	root/106	usr/lib/pkgconfig/harfbuzz.pc
