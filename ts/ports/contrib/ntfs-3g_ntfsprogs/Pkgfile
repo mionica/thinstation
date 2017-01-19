@@ -1,28 +1,34 @@
 # Description: Freely available NTFS driver with read and write support.
 # URL: http://www.tuxera.com/community/ntfs-3g-download/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
+# Depends on: fuse
 
 name=ntfs-3g_ntfsprogs
-version=2011.4.12
-release=1
-source=(http://tuxera.com/opensource/$name-$version.tgz)
+version=2016.2.22
+release=3
+source=(http://tuxera.com/opensource/ntfs-3g_ntfsprogs-$version.tgz)
 
 build() {
-	cd $name-$version
+	cd ntfs-3g_ntfsprogs-$version
+
+	install -d $PKG/lib
 
 	./configure \
 		--prefix=/usr \
-		--mandir=/usr/man \
-		--disable-static \
-		--disable-ldconfig
+		--disable-ldconfig \
+		--with-fuse=external \
+		--enable-posix-acls \
+		--enable-extras
 
 	make
 	make DESTDIR=$PKG install
-	chmod a-x $PKG/lib/*.so
 
-	rm $PKG/usr/share/doc/ntfs-3g/README
-	rmdir $PKG/usr/share/doc/ntfs-3g
-	rmdir $PKG/usr/share/doc
-	rmdir $PKG/usr/share
+	ln -s ../bin/ntfs-3g $PKG/sbin/mount.ntfs
+	ln -s ../bin/ntfsfix $PKG/sbin/fsck.ntfs
+
+	ln -s ntfs-3g.8 $PKG/usr/share/man/man8/mount.ntfs.8
+	ln -s ntfsfix.8 $PKG//usr/share/man/man8/fsck.ntfs.8
+
+	rm -r $PKG/usr/share/doc
 }
