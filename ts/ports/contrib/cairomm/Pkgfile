@@ -1,11 +1,11 @@
 # Description: C++ wrapper for the cairo graphics library.
 # URL: http://cairographics.org/cairomm/
-# Maintainer: Danny Rawlins, monster dot romster at gmail dot com
-# Packager: Danny Rawlins, monster dot romster at gmail dot com
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: Danny Rawlins, crux at romster dot me
 # Depends on: cairo libsigc++
 
 name=cairomm
-version=1.10.0
+version=1.12.0
 release=1
 source=(http://cairographics.org/releases/$name-$version.tar.gz)
 
@@ -14,8 +14,7 @@ build() {
 
 	./configure \
 		--prefix=/usr \
-		--disable-static \
-		--enable-shared
+		--disable-static
 
 	make
 	make DESTDIR=$PKG install
