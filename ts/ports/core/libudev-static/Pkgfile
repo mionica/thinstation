@@ -1,0 +1,51 @@
+# Description: Userspace device management daemon
+# URL:         http://www.kernel.org/pub/linux/utils/kernel/hotplug/udev.html
+# Maintainer:  CRUX System Team, core-ports at crux dot nu
+# Depends on:  kmod
+
+# *** MODIFIED ***
+# to only build libudev.a
+# *** INSTALL ***
+# after systemd, in FORCED mode (pkgadd -f)
+
+name=libudev-static
+version=1.6.3
+release=1
+source=(http://dev.gentoo.org/~blueness/eudev/eudev-3.2.1.tar.gz)
+
+build() {
+    cd eudev-3.2.1
+    
+    # needed for static linking, e.g. dmsetup.static 
+    sed -i '/^Libs:/s/-ludev/-ludev -lrt/' src/libudev/libudev.pc.in
+
+    # fix for gperf 3.1
+    # https://github.com/gentoo/eudev/commit/5bab4d8de0dcbb8e2e7d4d5125b4aea1652a0d60
+    sed -i '/*keyboard_lookup_key/d' src/udev/udev-builtin-keyboard.c
+
+    ./configure --prefix=/usr \
+                --sbindir=/sbin --bindir=/sbin \
+                --sysconfdir=/etc \
+                --with-rootprefix= \
+                --with-rootlibdir=/lib \
+                --libexecdir=/lib \
+                --disable-introspection \
+                --disable-manpages \
+                --enable-split-usr 
+
+    make CFLAGS="$CFLAGS -D_GNU_SOURCE" 
+    make install DESTDIR=$PKG
+    make -C man install DESTDIR=$PKG
+
+    # create binary hwdb
+    LD_LIBRARY_PATH=$PKG/lib \
+    $PKG/sbin/udevadm hwdb --update --root=$PKG
+
+    # Devices
+    install -d $PKG/lib/{firmware,udev/devices/{pts,shm}}
+    install -d $PKG/{lib,sbin,run}
+
+    # cleanup
+    rm -rf $PKG/etc/* $PKG/lib/*udev* $PKG/sbin/* $PKG/usr/share/man
+    rm -rf $PKG/usr/include/* $PKG/usr/lib/*.so*
+}

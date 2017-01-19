@@ -1,0 +1,15 @@
+drwxr-xr-x	root/root	etc/
+drwxr-xr-x	root/root	lib/
+drwxr-xr-x	root/root	lib/firmware/
+drwxr-xr-x	root/root	run/
+drwxr-xr-x	root/root	sbin/
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/include/
+drwxr-xr-x	root/root	usr/lib/
+-rw-r--r--	root/root	usr/lib/libudev.a
+-rwxr-xr-x	root/root	usr/lib/libudev.la
+drwxr-xr-x	root/root	usr/lib/pkgconfig/
+-rw-r--r--	root/root	usr/lib/pkgconfig/libudev.pc
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/pkgconfig/
+-rw-r--r--	root/root	usr/share/pkgconfig/udev.pc
