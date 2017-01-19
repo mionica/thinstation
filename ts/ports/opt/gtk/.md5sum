@@ -1,4 +1,3 @@
-e949406751df51e1e40e85628005a069  gtk+-2.24.13.tar.xz
+526a1008586094a2cbb4592fd3f9ee10  gtk+-2.24.31.tar.xz
 943d209df9d2cbdde16263b7bbfd4c10  gtk-register.sh
-d0855ad711c734dcf47104c12fb9b1bc  gtk.immodules
-238c123c1b423eb659c1a61db2310fbd  old-icon-symlinks.patch
+981cbb7e87666badc4798ceaf62c7f72  gtk.immodules

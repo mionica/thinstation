@@ -1,29 +1,18 @@
 # Description: A multi-platform toolkit for creating graphical user interfaces
 # URL: http://www.gtk.org/
-# Maintainer: Tilman Sauerbeck, tilman at crux dot nu
+# Maintainer: Fredrik Rinnestam, fredrik at crux dot nu
 # Depends on: atk, hicolor-icon-theme, gdk-pixbuf, pango, xorg-libsm, xorg-libxcursor, xorg-libxinerama, xorg-libxrandr, xorg-libxcomposite
 
 name=gtk
-version=2.24.13
+version=2.24.31
 release=1
-source=(http://download.gnome.org/sources/gtk+/${version%.*}/gtk+-$version.tar.xz \
-	gtk.immodules gtk-register.sh
-	old-icon-symlinks.patch)
+source=(http://download.gnome.org/sources/gtk+/2.24/${name}+-$version.tar.xz \
+	gtk.immodules gtk-register.sh)
 
 build () {
 	cd gtk+-$version
 
-#	patch -p1 -i $SRC/old-icon-symlinks.patch
-
-	./configure	--prefix=/usr \
-			--mandir=/usr/man \
-			--enable-debug \
-			--enable-introspection=no \
-			--with-xinput=xfree \
-			--disable-glibtest \
-			--disable-static \
-			--enable-shared
-
+	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG install
 	mkdir -p $PKG/usr/etc/gtk-2.0

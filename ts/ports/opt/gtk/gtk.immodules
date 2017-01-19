@@ -1,8 +1,8 @@
 # GTK+ Input Method Modules file
 # Automatically generated file, do not edit
-# Created by gtk-query-immodules-2.0 from gtk+-2.24.3
+# Created by /usr/bin/gtk-query-immodules-2.0 from gtk+-2.24.14
 #
-# ModulesPath = /home/tilman/.gtk-2.0/2.10.0/i686-pc-linux-gnu/immodules:/home/tilman/.gtk-2.0/2.10.0/immodules:/home/tilman/.gtk-2.0/i686-pc-linux-gnu/immodules:/home/tilman/.gtk-2.0/immodules:/usr/lib/gtk-2.0/2.10.0/i686-pc-linux-gnu/immodules:/usr/lib/gtk-2.0/2.10.0/immodules:/usr/lib/gtk-2.0/i686-pc-linux-gnu/immodules:/usr/lib/gtk-2.0/immodules
+# ModulesPath = /home/fredrik/.gtk-2.0/2.10.0/x86_64-unknown-linux-gnu/immodules:/home/fredrik/.gtk-2.0/2.10.0/immodules:/home/fredrik/.gtk-2.0/x86_64-unknown-linux-gnu/immodules:/home/fredrik/.gtk-2.0/immodules:/usr/lib/gtk-2.0/2.10.0/x86_64-unknown-linux-gnu/immodules:/usr/lib/gtk-2.0/2.10.0/immodules:/usr/lib/gtk-2.0/x86_64-unknown-linux-gnu/immodules:/usr/lib/gtk-2.0/immodules
 #
 "/usr/lib/gtk-2.0/2.10.0/immodules/im-am-et.so" 
 "am_et" "Amharic (EZ+)" "gtk20" "/usr/share/locale" "am" 
