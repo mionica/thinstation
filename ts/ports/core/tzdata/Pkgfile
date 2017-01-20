@@ -3,14 +3,25 @@
 # Maintainer:  CRUX System Team, core-ports at crux dot nu 
 
 name=tzdata
-version=2015e
+version=2016j
 release=1
-source=(https://www.iana.org/time-zones/repository/releases/tzdata$version.tar.gz
-        http://www.iana.org/time-zones/repository/releases/tzcode$version.tar.gz
-        tzcode-makefile.patch)
+source=(http://www.iana.org/time-zones/repository/releases/$name$version.tar.gz
+        http://www.iana.org/time-zones/repository/releases/tzcode$version.tar.gz)
 
 build() {
-    patch -p1 -i $SRC/tzcode-makefile.patch
-    make CFLAGS="$CFLAGS"
-    make DESTDIR=$PKG install
+
+    make -j1 install \
+        CFLAGS="$CFLAGS" \
+        DESTDIR=$PKG \
+        TOPDIR=/usr \
+        TZDIR=/usr/share/zoneinfo \
+        ETCDIR=/usr/sbin \
+        MANDIR=/usr/share/man 
+
+    # provided by man-pages
+    rm -r $PKG/usr/share/man/man{5,8}
+
+    # move tzselect to /usr/bin
+    install -d $PKG/usr/bin
+    mv $PKG/usr/{sbin/tzselect,bin}
 }
