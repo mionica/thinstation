@@ -1,24 +1,24 @@
-# Description: Thinstation essential package
-# URL: http://www.thinstation.org
-# Maintainer: Donald A. Cupp Jr. (don cupp jr at ya hoo dot com)
-# Depends on: lzo-TS
+# Description: VPN Client
+# URL:         http://www.openvpn.net
+# Maintainer:  Thomas Penteker, tek at serverop dot de
+# Depends on:  lzo
 
 name=openvpn
-version=2.2.1
+version=2.4.0
 release=1
-source=(http://swupdate.openvpn.org/community/releases/$name-$version.tar.gz)
+source=(http://swupdate.openvpn.net/community/releases/$name-$version.tar.gz \
+        openvpn)
 
 build() {
-	cd $name-$version
+  install -D -m 755 openvpn $PKG/etc/rc.d/openvpn
+  cd $name-$version
 
-	./configure --prefix=/usr \
-			--enable-password-save \
-			--enable-iproute2 \
-			--disable-pf \
-			--disable-selinux \
-			--libexecdir=/lib \
-			--mandir=/usr/man
+  ./configure --prefix=/usr \
+              --mandir=/usr/man \
+              --enable-iproute2 \
+              --disable-plugin-auth-pam
+  make
+  make DESTDIR=$PKG install
+  rm -r $PKG/usr/share
 
-	make
-	make DESTDIR=$PKG install
 }
