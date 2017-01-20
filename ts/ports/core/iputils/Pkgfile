@@ -1,10 +1,10 @@
 # Description: Basic networking applet
-# URL: http://www.linux-foundation.org/en/Net:Iputils
+# URL: http://www.linuxfoundation.org/collaborate/workgroups/networking/iputils
 # Maintainer: CRUX System Team, core-ports at crux dot nu
-# Depends on: sysfsutils
+# Depends on: libcap openssl
 
 name=iputils
-version=s20101006
+version=s20151218
 release=1
 source=(http://www.skbuff.net/iputils/$name-$version.tar.bz2
         http://crux.nu/files/distfiles/$name-man-$version.tar.xz)
@@ -12,13 +12,12 @@ source=(http://www.skbuff.net/iputils/$name-$version.tar.bz2
 build() {
     cd $name-$version
 
-    sed -i "/^CCOPT=/s|-O2|$CFLAGS|;s| -g$||" Makefile
-    make
+    make USE_GCRYPT=no USE_GNUTLS=no CCOPTOPT="$CFLAGS"
 
-    install -d $PKG/{{s,}bin,usr/{man/man8,sbin}}
+    install -d $PKG/{{s,}bin,usr/{sbin,share/man/man8}}
     install ping{,6} $PKG/bin/
     install arping $PKG/sbin/
     install tracepath{,6} traceroute6 clockdiff rarpd rdisc $PKG/usr/sbin/
-    cp -d $SRC/$name-man-$version/* $PKG/usr/man/man8
+    cp -d $SRC/$name-man-$version/* $PKG/usr/share/man/man8
     chmod u+s $PKG/bin/ping{,6} $PKG/usr/sbin/traceroute6
 }
